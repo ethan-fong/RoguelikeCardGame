@@ -1,0 +1,65 @@
+[gd_scene load_steps=12 format=3 uid="uid://iafhhben5a50"]
+
+[ext_resource type="Script" uid="uid://cxh3njjgwxagd" path="res://Components/DeckStack/DeckStack.gd" id="1_mlfqu"]
+[ext_resource type="Texture2D" uid="uid://ga6b75hmepvl" path="res://Components/DeckStack/Art/deck-1.png" id="2_v1rdb"]
+[ext_resource type="Texture2D" uid="uid://ct4n710am5eu8" path="res://Components/DeckStack/Art/deck-2.png" id="3_svq0b"]
+[ext_resource type="Texture2D" uid="uid://dl3okka1kgyjq" path="res://Components/DeckStack/Art/deck-3.png" id="4_pmj6y"]
+[ext_resource type="Texture2D" uid="uid://32rpw7t138sf" path="res://Components/DeckStack/Art/deck-4.png" id="5_d5ad2"]
+[ext_resource type="Texture2D" uid="uid://iwiupo0ignj7" path="res://Components/DeckStack/Art/deck-5.png" id="6_lp3li"]
+[ext_resource type="Texture2D" uid="uid://c0hs5tte7xepw" path="res://Components/DeckStack/Art/deck-6.png" id="7_5sb1m"]
+[ext_resource type="FontFile" uid="uid://bn4ngvhaal5i5" path="res://Assets/Fonts/Abaddon Light.ttf" id="8_00xld"]
+[ext_resource type="PackedScene" uid="uid://bgh5hqobc5puw" path="res://Components/Card/Card.tscn" id="9_00xld"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tnfdb"]
+font = ExtResource("8_00xld")
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_00xld"]
+font = ExtResource("8_00xld")
+font_color = Color(0, 0, 0, 1)
+
+[node name="DeckStack" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_mlfqu")
+textures = Array[Texture2D]([ExtResource("2_v1rdb"), ExtResource("3_svq0b"), ExtResource("4_pmj6y"), ExtResource("5_d5ad2"), ExtResource("6_lp3li"), ExtResource("7_5sb1m")])
+
+[node name="Sprite" type="TextureRect" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_v1rdb")
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 52.0
+offset_top = 12.0
+offset_right = 212.0
+offset_bottom = 52.0
+text = "Remaining in deck:"
+label_settings = SubResource("LabelSettings_tnfdb")
+
+[node name="CardPreview" type="Node2D" parent="."]
+unique_name_in_owner = true
+visible = false
+
+[node name="NextLabel" type="Label" parent="CardPreview"]
+unique_name_in_owner = true
+offset_left = 20.0
+offset_top = -132.0
+offset_right = 62.0
+offset_bottom = -109.0
+text = "Next:"
+label_settings = SubResource("LabelSettings_00xld")
+
+[node name="TopCard" parent="CardPreview" instance=ExtResource("9_00xld")]
+unique_name_in_owner = true
+offset_left = 11.0
+offset_top = -103.0
+offset_right = 68.0
+offset_bottom = -24.0

@@ -1,0 +1,79 @@
+[gd_scene load_steps=7 format=3 uid="uid://2sf44v65dsyh"]
+
+[ext_resource type="Script" uid="uid://cbb7pgkj7w7fy" path="res://Components/ShopItem/ShopItem.gd" id="1_1ggvb"]
+[ext_resource type="Texture2D" uid="uid://bb37j5mq5lr2y" path="res://Assets/Backgrounds/main_menu_background.png" id="2_j1i2r"]
+[ext_resource type="FontFile" uid="uid://bn4ngvhaal5i5" path="res://Assets/Fonts/Abaddon Light.ttf" id="3_rddsp"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_46ka5"]
+font = ExtResource("3_rddsp")
+
+[sub_resource type="LabelSettings" id="LabelSettings_m55je"]
+font = ExtResource("3_rddsp")
+
+[sub_resource type="LabelSettings" id="LabelSettings_tixyt"]
+font = ExtResource("3_rddsp")
+
+[node name="ShopItemCard" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = -418.0
+offset_bottom = -201.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1ggvb")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_j1i2r")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+clip_contents = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+stretch_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Name of Card
+"
+label_settings = SubResource("LabelSettings_46ka5")
+
+[node name="DescriptionLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Description of Card
+"
+label_settings = SubResource("LabelSettings_m55je")
+text_overrun_behavior = 3
+
+[node name="PriceLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Price of Card"
+label_settings = SubResource("LabelSettings_tixyt")
+
+[node name="PurchaseButton" type="Button" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Buy
+"

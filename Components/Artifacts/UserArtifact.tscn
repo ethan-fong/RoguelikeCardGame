@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://os3okyo71rbn"]
+
+[ext_resource type="Script" uid="uid://drn842u0tvtn3" path="res://Components/Artifacts/ArtifactUI.gd" id="1_kjya4"]
+[ext_resource type="PackedScene" uid="uid://6olm3tyfgn01" path="res://Components/Artifacts/ArtifactPopup.tscn" id="2_5qptd"]
+
+[node name="ArtifactUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kjya4")
+
+[node name="ArtifactIcon" type="TextureButton" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 719.0
+offset_bottom = 661.0
+
+[node name="HoverText" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="ArtifactDetailPopup" parent="." instance=ExtResource("2_5qptd")]
+layout_mode = 1

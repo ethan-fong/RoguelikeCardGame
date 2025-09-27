@@ -1,0 +1,98 @@
+[gd_scene load_steps=9 format=3 uid="uid://dhy56yui58lwn"]
+
+[ext_resource type="Script" uid="uid://weehdf65yru8" path="res://Stages/CardGame/Main.gd" id="1_o5qli"]
+[ext_resource type="Texture2D" uid="uid://ceo6mb8or2x15" path="res://Assets/Backgrounds/color_background_1.png" id="2_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://iafhhben5a50" path="res://Components/DeckStack/DeckStack.tscn" id="3_sugp2"]
+[ext_resource type="Script" uid="uid://8d1uiyyswenh" path="res://Components/Buttons/ButtonManager/ButtonManager.gd" id="4_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://s42c1et86od5" path="res://Components/Buttons/OptionButton/OptionButton.tscn" id="5_tbgi4"]
+[ext_resource type="Script" uid="uid://cjsn5vhfnndah" path="res://Stages/CardGame/CardGame.gd" id="6_o6xl0"]
+[ext_resource type="Script" uid="uid://8rfclgk51lut" path="res://Stages/CardGame/DeckManager.gd" id="6_tefeu"]
+[ext_resource type="PackedScene" uid="uid://b0g3eopgrjcln" path="res://Components/UI/CardGameOverlay.tscn" id="8_2l77h"]
+
+[node name="MainGame" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_o5qli")
+
+[node name="CardGame" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 640.0
+offset_bottom = 360.0
+
+[node name="Background" type="Node2D" parent="CardGame"]
+
+[node name="TextureRect" type="TextureRect" parent="CardGame/Background"]
+offset_top = 1.0
+offset_right = 640.0
+offset_bottom = 361.0
+texture = ExtResource("2_0wfyh")
+stretch_mode = 1
+
+[node name="CardGameOverlay" parent="CardGame" instance=ExtResource("8_2l77h")]
+layout_mode = 1
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="ButtonManager" type="Control" parent="CardGame"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 683.0
+offset_top = 778.0
+offset_right = 1217.0
+offset_bottom = 683.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_jyhfs")
+button_scene = ExtResource("5_tbgi4")
+
+[node name="ButtonsContainer" type="HBoxContainer" parent="CardGame/ButtonManager"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -382.0
+offset_top = -522.0
+offset_right = -59.0
+offset_bottom = -440.0
+
+[node name="RideTheBus" type="Control" parent="CardGame"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("6_o6xl0")
+
+[node name="DeckManager" type="Control" parent="CardGame/RideTheBus"]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("6_tefeu")
+
+[node name="DeckStack" parent="CardGame/RideTheBus/DeckManager" instance=ExtResource("3_sugp2")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 15.994
+anchor_bottom = 8.975
+offset_left = 28.0
+offset_top = 262.0
+offset_right = -558.76
+offset_bottom = -22.0
+
+[node name="CardLines" type="Node2D" parent="CardGame/RideTheBus/DeckManager"]
+position = Vector2(40, 40)
+
+[node name="InPlay" type="ScrollContainer" parent="CardGame/RideTheBus/DeckManager/CardLines"]
+unique_name_in_owner = true
+clip_contents = false
+offset_right = 340.0
+offset_bottom = 88.0
+size_flags_horizontal = 0
+
+[node name="CardLine" type="HBoxContainer" parent="CardGame/RideTheBus/DeckManager/CardLines/InPlay"]
+unique_name_in_owner = true
+layout_mode = 2

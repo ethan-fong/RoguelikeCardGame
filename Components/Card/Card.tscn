@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://bgh5hqobc5puw"]
+
+[ext_resource type="Script" uid="uid://c2nueds5ybrn1" path="res://Components/Card/Card.gd" id="1_kmti4"]
+[ext_resource type="Texture2D" uid="uid://bv2ycy40wcllp" path="res://Components/Card/Art/blue_backing.png" id="2_r3u6t"]
+[ext_resource type="Texture2D" uid="uid://ddek4jcg1c6ov" path="res://Components/Card/Art/1_clubs.png" id="3_5qkri"]
+[ext_resource type="AudioStream" uid="uid://dbvr87tgofxmk" path="res://Assets/SFX/Sounds/card_flip.wav" id="4_0fn85"]
+[ext_resource type="AudioStream" uid="uid://ccq2fevv4j638" path="res://Assets/SFX/Sounds/card_flip3.mp3" id="5_v51jx"]
+
+[node name="Card" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_kmti4")
+
+[node name="Sprite" type="Node2D" parent="."]
+
+[node name="Back" type="TextureRect" parent="Sprite"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_r3u6t")
+stretch_mode = 2
+
+[node name="Front" type="TextureRect" parent="Sprite"]
+offset_right = 57.0
+offset_bottom = 79.0
+texture = ExtResource("3_5qkri")
+stretch_mode = 2
+
+[node name="SFX" type="Node" parent="."]
+
+[node name="FlipUpSound" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("4_0fn85")
+
+[node name="FlipDownSound" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("5_v51jx")

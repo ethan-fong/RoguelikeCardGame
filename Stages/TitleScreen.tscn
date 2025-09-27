@@ -1,0 +1,54 @@
+[gd_scene load_steps=4 format=3 uid="uid://b8hgahpajh3xw"]
+
+[ext_resource type="Script" uid="uid://cpln1vxhkcqma" path="res://Stages/TitleScreen.gd" id="1_uon3m"]
+[ext_resource type="Texture2D" uid="uid://bb37j5mq5lr2y" path="res://Assets/Backgrounds/main_menu_background.png" id="2_st2yh"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2cf7p"]
+font_size = 70
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uon3m")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Background" type="TextureRect" parent="Node2D"]
+offset_right = 1918.0
+offset_bottom = 1080.0
+texture = ExtResource("2_st2yh")
+stretch_mode = 1
+
+[node name="PlayButton" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -85.0
+offset_top = -316.0
+offset_right = 86.0
+offset_bottom = -77.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Play"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 931.0
+offset_top = 239.0
+offset_right = -949.0
+offset_bottom = -818.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Game"
+label_settings = SubResource("LabelSettings_2cf7p")
